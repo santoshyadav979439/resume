@@ -78,6 +78,9 @@ to find them all, then swap in your figures and change `fill` to `m`.
 
 ## Export a clean PDF
 
+> ⚠️ **Important:** In the print dialog, **uncheck "Headers and footers"** before saving.
+> Otherwise Chrome stamps the date, page title, and file URL onto your PDF.
+
 From **Chrome** → `Cmd/Ctrl + P`:
 - **Destination:** Save as PDF
 - **Margins:** Default
