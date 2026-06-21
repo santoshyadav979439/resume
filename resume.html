@@ -181,11 +181,9 @@
 
   /* ============ Print overrides ============ */
   @media print {
+    * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
     html, body { background: #fff; }
     .page { margin: 0; padding: 0; width: auto; box-shadow: none; }
-    .fill, .job::before, .eyebrow, .m {
-      -webkit-print-color-adjust: exact; print-color-adjust: exact;
-    }
     a { color: var(--slate) !important; }
   }
   @media (prefers-reduced-motion: reduce) { * { animation: none !important; transition: none !important; } }
