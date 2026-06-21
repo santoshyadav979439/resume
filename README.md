@@ -82,6 +82,9 @@ From **Chrome** → `Cmd/Ctrl + P`:
 - **Destination:** Save as PDF
 - **Margins:** Default
 - **Background graphics:** **ON** (so the indigo rail, dots, and accents print)
+- **More settings → uncheck "Headers and footers"** — this removes the **date, page title,
+  and file URL** that Chrome otherwise stamps at the top and bottom of the page. (This is a
+  browser print setting, not something the HTML can control.)
 - Use Chrome's built-in *Save as PDF* — not the macOS print-dialog "PDF" button, which can
   flatten your clickable links.
 
@@ -102,6 +105,18 @@ Change `--indigo` to recolor every accent at once. Body font size lives in `body
 
 ---
 
-## License
+## Contributing
 
-MIT — use it, edit it, share it.
+Contributions are welcome! Whether it's a layout fix, a new color theme, better print
+handling, or accessibility improvements — feel free to pitch in:
+
+1. **Fork** this repo and create a branch (`git checkout -b my-improvement`).
+2. Make your change to `resume.html` (or the README).
+3. **Open it in a browser** and export a test PDF to confirm it still renders on one or two
+   clean pages.
+4. **Commit** with a clear message and **open a Pull Request** describing what you changed
+   and why.
+
+Have an idea but not the time to build it? **Open an issue** — bug reports, theme requests,
+and suggestions are all appreciated. Please keep the file dependency-free (no external
+fonts, scripts, or build step) so it stays a single, portable HTML file.
