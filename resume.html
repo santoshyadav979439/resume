@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Santosh Yadav — Resume</title>
+<style>
+  /* ============ Print page setup ============ */
+  @page { size: Letter; margin: 0.5in; }
+
+  :root {
+    --ink:    #16171A;
+    --body:   #2a2b30;
+    --slate:  #5B6066;
+    --faint:  #8a8f96;
+    --hair:   #E6E6E1;
+    --rail:   #d7d5f4;
+    --indigo: #5A52E0;
+    --indigo-soft: #ece9fb;
+    --wash:   #faf9fe;
+    --sans: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+    --mono: ui-monospace, "SF Mono", "Menlo", "Consolas", monospace;
+  }
+
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; background: #f3f3f0; }
+
+  body {
+    font-family: var(--sans);
+    color: var(--body);
+    -webkit-font-smoothing: antialiased;
+    line-height: 1.4;
+    font-size: 9.6pt;
+  }
+
+  .page {
+    width: 8.5in;
+    margin: 24px auto;
+    padding: 0.5in;
+    background: #fff;
+    box-shadow: 0 2px 18px rgba(0,0,0,.12);
+  }
+
+  /* ============ Header ============ */
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 24px;
+    padding-bottom: 11px;
+    border-bottom: 2.5px solid var(--indigo);
+  }
+  .name {
+    font-size: 31pt;
+    font-weight: 800;
+    letter-spacing: -0.022em;
+    line-height: 0.95;
+    margin: 0;
+  }
+  .role {
+    margin: 7px 0 0;
+    font-size: 11pt;
+    font-weight: 600;
+    color: var(--indigo);
+  }
+  .contact {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 5px;
+    font-family: var(--mono);
+    font-size: 7.8pt;
+    color: var(--slate);
+  }
+  .crow { display: inline-flex; align-items: center; gap: 6px; color: var(--slate); text-decoration: none; white-space: nowrap; }
+  .social { gap: 13px; margin-top: 1px; }
+  .social a { display: inline-flex; align-items: center; gap: 5px; color: var(--slate); text-decoration: none; }
+  .ico { width: 10.5px; height: 10.5px; fill: currentColor; flex: none; }
+
+  /* ============ Section scaffolding ============ */
+  section { margin-top: 16px; }
+  .eyebrow {
+    font-size: 7.6pt;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: var(--indigo);
+    margin: 0 0 9px;
+    display: flex;
+    align-items: center;
+    gap: 9px;
+  }
+  .eyebrow::after { content: ""; flex: 1; height: 1px; background: var(--hair); }
+
+  /* ============ Summary ============ */
+  .summary { font-size: 10pt; color: #25262b; margin: 13px 0 0; }
+  .summary strong { font-weight: 600; color: var(--ink); }
+
+  /* ============ Skills ============ */
+  .skills { display: grid; grid-template-columns: 110px 1fr; row-gap: 6px; column-gap: 14px; }
+  .skills dt {
+    font-family: var(--mono);
+    font-size: 7.6pt;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--slate);
+    padding-top: 1px;
+  }
+  .skills dd { margin: 0; font-size: 9.4pt; color: var(--ink); }
+
+  /* ============ Experience timeline ============ */
+  .job {
+    position: relative;
+    padding-left: 19px;
+    padding-bottom: 13px;
+    border-left: 1.5px solid var(--rail);
+    break-inside: avoid;
+  }
+  .job:last-child { border-left-color: transparent; padding-bottom: 2px; }
+  .job::before {
+    content: "";
+    position: absolute;
+    left: -5.25px; top: 3px;
+    width: 9px; height: 9px;
+    background: #fff;
+    border: 2.25px solid var(--indigo);
+    border-radius: 50%;
+  }
+  .job-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 12px;
+  }
+  .job-title { font-size: 10.6pt; font-weight: 700; margin: 0; color: var(--ink); }
+  .job-title .pos { color: var(--slate); font-weight: 600; }
+  .dates {
+    font-family: var(--mono);
+    font-size: 7.8pt;
+    color: var(--indigo);
+    white-space: nowrap;
+    letter-spacing: -0.02em;
+  }
+
+  ul.bullets { margin: 5px 0 0; padding-left: 0; list-style: none; }
+  ul.bullets li {
+    position: relative;
+    padding-left: 13px;
+    margin-bottom: 3px;
+    font-size: 9.3pt;
+    color: var(--body);
+  }
+  ul.bullets li::before {
+    content: "";
+    position: absolute;
+    left: 0; top: 0.5em;
+    width: 3.5px; height: 3.5px;
+    background: var(--indigo);
+    border-radius: 50%;
+  }
+
+  /* signature: metrics + verified numbers in mono indigo */
+  .m { font-family: var(--mono); font-weight: 600; color: var(--indigo); letter-spacing: -0.02em; }
+  /* placeholders to fill */
+  .fill { font-family: var(--mono); font-weight: 600; color: #b23b00; background: #fff2ea; padding: 0 2px; border-radius: 2px; }
+  strong { font-weight: 600; color: var(--ink); }
+
+  /* ============ Bottom grid: education / certs / pubs ============ */
+  .closer {
+    margin-top: 16px;
+    display: grid;
+    grid-template-columns: 1.15fr 1fr 1.25fr;
+    gap: 22px;
+    break-inside: avoid;
+  }
+  .closer .eyebrow::after { display: none; }
+  .mini-title { font-size: 9.6pt; font-weight: 700; margin: 0; color: var(--ink); }
+  .mini-sub { font-family: var(--mono); font-size: 7.6pt; color: var(--slate); margin: 2px 0 0; }
+  .stack { list-style: none; margin: 0; padding: 0; }
+  .stack li { font-size: 8.9pt; color: var(--body); margin-bottom: 4px; padding-left: 12px; position: relative; }
+  .stack li::before { content: ""; position: absolute; left: 0; top: 0.5em; width: 3px; height: 3px; background: var(--indigo); border-radius: 50%; }
+
+  /* ============ Print overrides ============ */
+  @media print {
+    html, body { background: #fff; }
+    .page { margin: 0; padding: 0; width: auto; box-shadow: none; }
+    .fill, .job::before, .eyebrow, .m {
+      -webkit-print-color-adjust: exact; print-color-adjust: exact;
+    }
+    a { color: var(--slate) !important; }
+  }
+  @media (prefers-reduced-motion: reduce) { * { animation: none !important; transition: none !important; } }
+</style>
+</head>
+<body>
+<main class="page">
+
+  <header>
+    <div>
+      <h1 class="name">Santosh Yadav</h1>
+      <p class="role">Senior Software Engineer — Frontend &amp; Full Stack</p>
+    </div>
+    <div class="contact">
+      <span class="crow social">
+        <a href="https://www.linkedin.com/in/santosh-yadav-79bb1779/" aria-label="LinkedIn"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 11-.02 5 2.5 2.5 0 01.02-5zM3 9h4v12H3zM9 9h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1V21h-4v-5.4c0-1.3-.02-2.96-1.8-2.96-1.8 0-2.08 1.4-2.08 2.86V21H9z"/></svg>linkedin</a>
+        <a href="https://medium.com/@santoshyadav979439" aria-label="Medium"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M13.54 12a6.8 6.8 0 01-6.77 6.82A6.8 6.8 0 010 12a6.8 6.8 0 016.77-6.82A6.8 6.8 0 0113.54 12zm7.42 0c0 3.54-1.51 6.42-3.38 6.42s-3.39-2.88-3.39-6.42 1.52-6.42 3.39-6.42S20.96 8.46 20.96 12M24 12c0 3.17-.53 5.75-1.19 5.75-.66 0-1.19-2.58-1.19-5.75s.53-5.75 1.19-5.75S24 8.83 24 12z"/></svg>medium</a>
+      </span>
+    </div>
+  </header>
+
+  <p class="summary">
+    Senior engineer with <strong>10+ years</strong> building web applications in
+    <strong>React, TypeScript &amp; Next.js</strong> — from <strong>public-facing products serving
+    millions of users</strong> (Uber Eats) to <strong>configuration-driven platforms and developer
+    tooling</strong> that collapse launch effort from months to days. Specialized in
+    <strong>web performance optimization</strong>, with full-stack range across
+    <strong>Node.js, Express, Java, and Golang</strong>. Proven across IC and lead roles, having
+    mentored <strong>20+ engineers</strong> and led frontend teams end to end.
+  </p>
+
+  <section>
+    <p class="eyebrow">Core Skills</p>
+    <dl class="skills">
+      <dt>Languages</dt><dd>JavaScript · TypeScript · Golang · Python · Java</dd>
+      <dt>Frameworks</dt><dd>React · Next.js · Redux · Node.js · Express</dd>
+      <dt>Frontend &amp; Data-viz</dt><dd>GraphQL · Apollo Client · D3.js · Highcharts · Styled-Components · Tailwind · Sass · HTML · CSS</dd>
+      <dt>Testing &amp; Tooling</dt><dd>Jest · React Testing Library · Webpack · Storybook · Git · AWS</dd>
+      <dt>Foundations</dt><dd>Data Structures · Algorithms · System Design</dd>
+    </dl>
+  </section>
+
+  <section>
+    <p class="eyebrow">Experience</p>
+
+    <div class="job">
+      <div class="job-head">
+        <p class="job-title">Uber <span class="pos">— Senior Software Engineer</span></p>
+        <span class="dates">Sep 2025 — Present</span>
+      </div>
+      <ul class="bullets">
+        <li>Built the Uber Eats Web Membership platform as a server-driven webview (Golang + JSX), dynamically composing membership hubs, banners, sell pages, and interstitials for <span class="m">millions</span> of users globally.</li>
+        <li>Architected a configuration-driven system for membership tiles across the Uber Rides and Eats apps (React + TypeScript), used directly by PMs and engineers — eliminating hardcoded implementations and saving <span class="m">~1.5 months</span> of engineering effort per membership launch.</li>
+        <li>Contributed to an internal portal for creating offerings, programs, and benefits, cutting development and debugging by <span class="m">2–3 months</span> per new initiative.</li>
+        <li>Mentored <span class="m">5 engineers</span>; authored <span class="m">6</span> engineering design docs and runbooks and reviewed <span class="m">10+</span>, driving architecture decisions and system reliability across the team.</li>
+      </ul>
+    </div>
+
+    <div class="job">
+      <div class="job-head">
+        <p class="job-title">ServiceNow <span class="pos">— Staff Software Engineer</span></p>
+        <span class="dates">Nov 2024 — Sep 2025</span>
+      </div>
+      <ul class="bullets">
+        <li>Enhanced user experience by analyzing and optimizing user profiles for personalized interactions, improving engagement by <span class="fill">[+X%]</span>.</li>
+        <li>Drove performance improvements and implemented best practices org-wide for scalability and efficiency, improving <span class="fill">[load time / web-vitals by Y%]</span>.</li>
+        <li>Mentored and guided junior engineers through code review and design support to foster skill development and raise delivery quality.</li>
+      </ul>
+    </div>
+
+    <div class="job">
+      <div class="job-head">
+        <p class="job-title">PayPal <span class="pos">— Software Engineer 3</span></p>
+        <span class="dates">Dec 2022 — Nov 2024</span>
+      </div>
+      <ul class="bullets">
+        <li>Built <strong>Insightly</strong>, an in-house self-service analytics product, from scratch — letting PMs and engineers understand customer behavior in <span class="m">&lt;5 min</span> and decommissioning a third-party tool (Amplitude) to save <span class="m">~$5M / year</span>.</li>
+        <li>Owned coding, system design, code review, and unit testing as a core contributor on Insightly.</li>
+        <li>Improved web-application performance through code-splitting, lazy-loading, network optimization, and caching — <span class="fill">[X% faster TTI · −Y% bundle]</span>.</li>
+      </ul>
+    </div>
+
+    <div class="job">
+      <div class="job-head">
+        <p class="job-title">Ferns N Petals (FNP) <span class="pos">— Technical Lead, Frontend</span></p>
+        <span class="dates">Sep 2021 — Nov 2022</span>
+      </div>
+      <ul class="bullets">
+        <li>Initiated and led <span class="m">3 projects</span> from concept to production with <span class="m">6 frontend engineers</span>.</li>
+        <li>Built a system letting PMs and business users change homepage widgets on the fly, powering an effective recommendation engine that increased purchases by <span class="fill">[+Z%]</span>.</li>
+        <li>Developed a review-and-rating system that improved customer feedback capture.</li>
+        <li>Owned requirement gathering, frontend system design, coding standards, code review, CI/CD setup, and mentoring.</li>
+      </ul>
+    </div>
+
+    <div class="job">
+      <div class="job-head">
+        <p class="job-title">Nagarro <span class="pos">— Associate Staff Engineer</span></p>
+        <span class="dates">Mar 2021 — Sep 2021</span>
+      </div>
+      <ul class="bullets">
+        <li>Created reusable, responsive web components for AEM with unit tests.</li>
+        <li>Enhanced application performance — latency, web-vitals, and Lighthouse scores from <span class="fill">[62 → 95]</span> — using Chrome Lighthouse, New Relic, and PageSpeed.</li>
+        <li>Executed proofs of concept and developed prototypes for new initiatives.</li>
+      </ul>
+    </div>
+
+    <div class="job">
+      <div class="job-head">
+        <p class="job-title">TCS <span class="pos">— Full Stack Engineer</span></p>
+        <span class="dates">Dec 2015 — Mar 2021</span>
+      </div>
+      <ul class="bullets">
+        <li>Contributed to <span class="m">10+</span> medium and large-scale projects, building applications and dashboards.</li>
+        <li>Streamlined the key "Generic Biz App," adding automation to generate full forms without writing a single line of frontend or backend code.</li>
+        <li>Built KPA dashboards for senior staff to track individual and team performance (React.js, Node.js, Python), and applications that reduced manual effort for universities (data fetching, interactive pages, accreditation submissions).</li>
+        <li>Developed reusable components in JavaScript and Java across responsive web applications.</li>
+      </ul>
+    </div>
+  </section>
+
+  <div class="closer">
+    <div>
+      <p class="eyebrow">Education</p>
+      <p class="mini-title">M.Tech, Computer Science</p>
+      <p class="mini-sub">Madan Mohan Malaviya<br>University of Technology</p>
+      <p class="mini-sub" style="margin-top:4px;">2013 — 2015</p>
+    </div>
+    <div>
+      <p class="eyebrow">Certifications</p>
+      <ul class="stack">
+        <li>HackerRank — Advanced JavaScript Developer</li>
+        <li>HackerRank — React.js</li>
+        <li>HackerRank — CSS</li>
+      </ul>
+    </div>
+    <div>
+      <p class="eyebrow">Publications &amp; Awards</p>
+      <ul class="stack">
+        <li>Research paper published in an international journal</li>
+        <li>JavaScript articles on JavaScript.plainenglish</li>
+        <li>Best Innovative Team &amp; Problem Solver Awards (TCS)</li>
+        <li>On-the-spot award for timely delivery of a complex project</li>
+      </ul>
+    </div>
+  </div>
+
+</main>
+</body>
+</html>
